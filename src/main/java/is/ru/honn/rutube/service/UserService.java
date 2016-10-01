@@ -8,6 +8,7 @@ import is.ru.honn.rutube.domain.User;
  */
 public interface UserService
 {
-    int addUser(User user) throws ServiceException;
+    boolean addUser(User user) throws ServiceException;
+    User getUser(int userId);
     List<User> getUsers();
 }
