@@ -1,9 +1,9 @@
 <beans>
-    <bean id="videoReader" class="is.ru.honn.reader.VideoReader">
+    <bean id="videoReader" class="is.ru.honn.rutube.reader.VideoReader">
 
     </bean>
 
-    <bean id="userReader" class="is.ru.honn.reader.UserReader">
+    <bean id="userReader" class="is.ru.honn.rutube.reader.UserReader">
         <constructor-arg ref="videoReader" />
     </bean>
 </beans>
