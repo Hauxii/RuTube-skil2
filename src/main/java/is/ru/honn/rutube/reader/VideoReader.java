@@ -8,7 +8,7 @@ import org.json.simple.JSONValue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoReader {
+public class VideoReader extends AbstractReader{
 
   public VideoReader(){}
 

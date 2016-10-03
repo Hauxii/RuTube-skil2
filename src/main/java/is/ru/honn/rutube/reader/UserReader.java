@@ -9,7 +9,7 @@ import org.json.simple.JSONValue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserReader {
+public class UserReader extends AbstractReader{
 
   private VideoReader videoReader;
 
