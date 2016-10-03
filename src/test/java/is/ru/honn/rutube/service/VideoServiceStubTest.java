@@ -1,6 +1,5 @@
 package is.ru.honn.rutube.service;
 
-import is.ru.honn.rutube.domain.User;
 import is.ru.honn.rutube.domain.Video;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +12,7 @@ import static org.junit.Assert.*;
  */
 public class VideoServiceStubTest {
     VideoServiceStub stub;
-    UserServiceStub userstub;
+    
     @Before
     public void setUp() throws Exception {
         stub = new VideoServiceStub();
