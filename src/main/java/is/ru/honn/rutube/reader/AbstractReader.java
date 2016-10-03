@@ -15,9 +15,9 @@ public abstract class AbstractReader implements Reader{
         this.cr = new ClientRequest();
     }
 
-    public Object read(){
-        if(uri == null){
-            throw new ReaderException("URI has not been set");
+    public Object read() throws ReaderException {
+        if(uri != "http://mockaroo.com/f13b8200/download?count=1&key=e79a3650"){
+            throw new ReaderException("URI is wrong");
         }
 
         if(readHandler == null){

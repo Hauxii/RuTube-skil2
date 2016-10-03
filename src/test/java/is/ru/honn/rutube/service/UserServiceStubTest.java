@@ -1,7 +1,6 @@
 package is.ru.honn.rutube.service;
 
 import is.ru.honn.rutube.domain.User;
-import org.junit.Before;
 
 import static org.junit.Assert.assertEquals;
 
