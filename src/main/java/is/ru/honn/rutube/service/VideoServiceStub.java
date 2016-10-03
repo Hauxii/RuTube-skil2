@@ -8,15 +8,36 @@ import java.util.List;
 /**
  * Created by Lenny on 29.9.2016.
  */
-public class VideoServiceStub {
+public class VideoServiceStub implements VideoService {
 
-    Video getVideo(int videoId){
-        return new Video(1, "bla","desc", "src", "type", new ArrayList<>());
+    List<Video> _videos = new ArrayList<>();
+
+    public Video getVideo(int videoId){
+        for (Video vid : _videos){
+            if(vid.getVideoId() == videoId){
+                return vid;
+            }
+        }
+        return null;
     }
-    List<Video> getVideosbyUser(int userId){
-        return new ArrayList<>();
+
+    public List<Video> getVideosbyUser(int userId){
+        List<Video> videosByUser = new ArrayList<>();
+        for(Video vid : _videos){
+            if (vid.getUserId() == userId){
+                videosByUser.add(vid);
+            }
+        }
+        return videosByUser;
     }
-    int addVideo(Video video, int userId) throws ServiceException{
-        return 1;
+
+    public boolean addVideo(Video video) throws ServiceException{
+        //Check if user exists
+        for (Video vid : _videos){
+            if(vid.getVideoId() == video.getVideoId()){
+                throw new ServiceException();
+            }
+        }
+        return _videos.add(video);
     }
 }
