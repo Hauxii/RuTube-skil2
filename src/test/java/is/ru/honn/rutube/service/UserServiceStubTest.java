@@ -24,7 +24,7 @@ public class UserServiceStubTest {
     }
 
     @org.junit.Test
-    public void addUser() throws Exception {
+    public void addValidUser() throws Exception {
         try{
             User user = new User(1, "Kristinn", "Gudmunds", "kristinng14@ru.is", "KG", "1994-09-27");
             assertEquals(true, stub.addUser(user));
@@ -37,7 +37,7 @@ public class UserServiceStubTest {
     @org.junit.Test
     public void addUserShouldFail() throws Exception {
         try{
-            User user = new User(1, "Berglind", "Omars", "berglindoma13@ru.is", "Beggz", "1992-09-17");
+            User user = new User(0, "Berglind", "Omars", "berglindoma13@ru.is", "Beggz", "1992-09-17");
             assertEquals(false, stub.addUser(user));
         }
         catch (ServiceException e){
@@ -46,18 +46,13 @@ public class UserServiceStubTest {
     }
 
     @org.junit.Test
-    public void getUser() throws Exception {
+    public void getValidUser() throws Exception {
         assertEquals(0, stub.getUser(0).getUserId());
     }
 
     @org.junit.Test
     public void getNonExistingUser() throws Exception {
         assertEquals(null, stub.getUser(99));
-    }
-
-    @org.junit.Test
-    public void getUsers() throws Exception {
-
     }
 
 }

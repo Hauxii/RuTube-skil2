@@ -15,7 +15,8 @@ public class UserServiceStub implements UserService{
     public boolean addUser(User user) throws ServiceException {
         for(User u : _users){
             if(u.getUserId() == user.getUserId()){
-                throw new ServiceException();
+                return false;
+                //throw new ServiceException();
             }
         }
         return _users.add(user);
