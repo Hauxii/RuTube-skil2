@@ -10,7 +10,9 @@ import java.util.List;
 
 public class VideoReader extends AbstractReader{
 
-  public VideoReader(){}
+  public VideoReader(){
+
+  }
 
 
   /**
@@ -39,6 +41,7 @@ public class VideoReader extends AbstractReader{
       videos.add(video);
     });
 
+    readHandler.read(videos.size(),videos);
     return videos;
   }
 

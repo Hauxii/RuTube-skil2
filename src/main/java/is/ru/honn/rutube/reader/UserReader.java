@@ -56,6 +56,7 @@ public class UserReader extends AbstractReader{
       users.add(user);
     });
 
+    readHandler.read(users.size(),users);
     return users;
   }
 
