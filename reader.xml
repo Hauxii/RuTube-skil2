@@ -1,0 +1,9 @@
+<beans>
+    <bean id="videoReader" class="is.ru.honn.reader.VideoReader">
+
+    </bean>
+
+    <bean id="userReader" class="is.ru.honn.reader.UserReader">
+        <constructor-arg ref="videoReader" />
+    </bean>
+</beans>
