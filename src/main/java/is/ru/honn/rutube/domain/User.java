@@ -32,4 +32,8 @@ public class User {
   public int getUserId() {
     return userId;
   }
+
+  public List<Video> getVideos() {
+    return videos;
+  }
 }

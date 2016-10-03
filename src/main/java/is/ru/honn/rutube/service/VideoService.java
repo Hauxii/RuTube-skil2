@@ -9,6 +9,6 @@ import is.ru.honn.rutube.domain.Video;
 public interface VideoService
 {
     Video getVideo(int videoId);
-    List<Video> getVideosbyUser(int userId);
+    List<Video> getVideosByUser(int userId);
     boolean addVideo(Video video, int userId) throws ServiceException;
 }
