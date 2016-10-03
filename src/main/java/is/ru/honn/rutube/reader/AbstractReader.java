@@ -7,11 +7,13 @@ import java.util.List;
  * Created by Berglind on 10/3/2016.
  */
 public abstract class AbstractReader implements Reader{
-    public AbstractReader(){}
-    private ClientRequest cr = new ClientRequest();
+    private ClientRequest cr;
     private String uri;
-    protected ReadHandler readHandler = new TestReader();
+    protected ReadHandler readHandler;
 
+    public AbstractReader(){
+        this.cr = new ClientRequest();
+    }
 
     public Object read(){
         return parse(cr.getRequest(uri));
