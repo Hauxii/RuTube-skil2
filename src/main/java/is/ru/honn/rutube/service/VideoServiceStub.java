@@ -39,17 +39,11 @@ public class VideoServiceStub implements VideoService {
 
     public boolean addVideo(Video video, int userId) throws ServiceException{
 
-        //Check if user exists
-        if(getVideosByUser(userId) == null){
+        //Check if user or video with given ID exists
+        if(getVideosByUser(userId) == null || getVideo(video.getVideoId()) != null){
             throw new ServiceException();
         }
 
-        //Check if video with given ID already exists
-        for (Video vid : getVideosByUser(userId)){
-            if(vid.getVideoId() == video.getVideoId()){
-                throw new ServiceException();
-            }
-        }
         return getVideosByUser(userId).add(video);
     }
 }
