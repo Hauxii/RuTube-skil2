@@ -16,6 +16,14 @@ public abstract class AbstractReader implements Reader{
     }
 
     public Object read(){
+        if(uri == null){
+            throw new ReaderException("URI has not been set");
+        }
+
+        if(readHandler == null){
+            throw new ReaderException("ReadHandler has not been set");
+        }
+
         return parse(cr.getRequest(uri));
     }
 
