@@ -24,14 +24,12 @@ public class VideoServiceStub implements VideoService {
     public List<Video> getVideosbyUser(int userId){
         List<Video> videosByUser = new ArrayList<>();
         for(Video vid : _videos){
-            if (vid.getUserId() == userId){
-                videosByUser.add(vid);
-            }
+            //find video with userId
         }
         return videosByUser;
     }
 
-    public boolean addVideo(Video video) throws ServiceException{
+    public boolean addVideo(Video video, int userId) throws ServiceException{
         //Check if user exists
         for (Video vid : _videos){
             if(vid.getVideoId() == video.getVideoId()){

@@ -10,5 +10,5 @@ public interface VideoService
 {
     Video getVideo(int videoId);
     List<Video> getVideosbyUser(int userId);
-    boolean addVideo(Video video) throws ServiceException;
+    boolean addVideo(Video video, int userId) throws ServiceException;
 }

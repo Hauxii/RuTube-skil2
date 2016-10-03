@@ -26,8 +26,8 @@ public class VideoServiceStubTest {
     @Test
     public void addValidVideo() throws Exception {
         try{
-            Video newvideo = new Video(0,"testvideo", "some bull", "www.something.com", "AVI", new ArrayList<>(), 0);
-            assertEquals(true,stub.addVideo(newvideo));
+            Video newvideo = new Video(0,"testvideo", "some bull", "www.something.com", "AVI", new ArrayList<>());
+            assertEquals(true,stub.addVideo(newvideo, 10));
         }
         catch(ServiceException ex){
             System.out.println("ServiceException Caught");
@@ -36,8 +36,8 @@ public class VideoServiceStubTest {
 
     @org.junit.Test(expected = ServiceException.class)
     public void addInvalidVideo() throws Exception {
-        Video newvideo = new Video(0,"testvideo", "some bull", "www.something.com", "AVI", new ArrayList<>(), 10);
-        assertEquals(false,stub.addVideo(newvideo));
+        Video newvideo = new Video(0,"testvideo", "some bull", "www.something.com", "AVI", new ArrayList<>());
+        assertEquals(false,stub.addVideo(newvideo, 0));
     }
 
 }
