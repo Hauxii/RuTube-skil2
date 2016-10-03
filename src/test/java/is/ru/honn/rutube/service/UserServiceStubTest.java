@@ -34,15 +34,11 @@ public class UserServiceStubTest {
         }
     }
 
-    @org.junit.Test
+    @org.junit.Test(expected = ServiceException.class)
     public void addUserShouldFail() throws Exception {
-        try{
-            User user = new User(0, "Berglind", "Omars", "berglindoma13@ru.is", "Beggz", "1992-09-17");
-            assertEquals(false, stub.addUser(user));
-        }
-        catch (ServiceException e){
-            System.out.println("ServiceException Caught");
-        }
+
+        User user = new User(0, "Berglind", "Omars", "berglindoma13@ru.is", "Beggz", "1992-09-17");
+        assertEquals(false, stub.addUser(user));
     }
 
     @org.junit.Test
