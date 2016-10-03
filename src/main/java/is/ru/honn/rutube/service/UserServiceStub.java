@@ -10,7 +10,11 @@ import java.util.List;
  */
 public class UserServiceStub implements UserService{
 
-    private List<User> _users = new ArrayList<>();
+    private List<User> _users;
+
+    UserServiceStub(){
+        this._users = new ArrayList<>();
+    }
 
     public boolean addUser(User user) throws ServiceException {
         for(User u : _users){

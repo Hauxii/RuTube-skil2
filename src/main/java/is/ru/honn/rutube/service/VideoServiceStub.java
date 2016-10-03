@@ -1,5 +1,6 @@
 package is.ru.honn.rutube.service;
 
+import is.ru.honn.rutube.domain.User;
 import is.ru.honn.rutube.domain.Video;
 
 import java.util.ArrayList;
@@ -10,32 +11,45 @@ import java.util.List;
  */
 public class VideoServiceStub implements VideoService {
 
-    List<Video> _videos = new ArrayList<>();
+    UserServiceStub userServiceStub;
+
+    VideoServiceStub(UserServiceStub userServiceStub){
+        this.userServiceStub = userServiceStub;
+    }
 
     public Video getVideo(int videoId){
-        for (Video vid : _videos){
-            if(vid.getVideoId() == videoId){
-                return vid;
+        for (User user : userServiceStub.getUsers()){
+            for (Video video : user.getVideos()){
+                if(video.getVideoId() == videoId){
+                    return video;
+                }
             }
         }
         return null;
     }
 
-    public List<Video> getVideosbyUser(int userId){
-        List<Video> videosByUser = new ArrayList<>();
-        for(Video vid : _videos){
-            //find video with userId
+    public List<Video> getVideosByUser(int userId){
+        for(User user : userServiceStub.getUsers()){
+            if(user.getUserId() == userId){
+                return user.getVideos();
+            }
         }
-        return videosByUser;
+        return null;
     }
 
     public boolean addVideo(Video video, int userId) throws ServiceException{
+
         //Check if user exists
-        for (Video vid : _videos){
+        if(getVideosByUser(userId) == null){
+            throw new ServiceException();
+        }
+
+        //Check if video with given ID already exists
+        for (Video vid : getVideosByUser(userId)){
             if(vid.getVideoId() == video.getVideoId()){
                 throw new ServiceException();
             }
         }
-        return _videos.add(video);
+        return getVideosByUser(userId).add(video);
     }
 }

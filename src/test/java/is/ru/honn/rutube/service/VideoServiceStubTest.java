@@ -12,10 +12,12 @@ import static org.junit.Assert.*;
  */
 public class VideoServiceStubTest {
     VideoServiceStub stub;
+    UserServiceStub userServiceStub;
     
     @Before
     public void setUp() throws Exception {
-        stub = new VideoServiceStub();
+        userServiceStub = new UserServiceStub();
+        stub = new VideoServiceStub(userServiceStub);
     }
 
     @Test
