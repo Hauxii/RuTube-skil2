@@ -7,7 +7,10 @@ import is.ru.honn.rutube.reader.ReaderFactory;
 import is.ru.honn.rutube.service.UserService;
 import is.ruframework.process.RuAbstractProcess;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Locale;
 
 /**
  * Created by Lenny on 4.10.2016.
@@ -15,25 +18,33 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class UserImportProcess  extends RuAbstractProcess{
 
     UserService userService;
+    MessageSource messageSource;
+    Reader reader;
 
     @Override
     public void beforeProcess() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("app.xml");
-        userService = (UserService)applicationContext.getBean("userService");
-        //TODO msgsource
-    }
 
-    @Override
-    public void startProcess() {
+        messageSource = (MessageSource)applicationContext.getBean("messageSource");
+        System.out.println(messageSource.getMessage("processbefore", new Object[]{this.getClass().getName()}, new Locale("en")));
+        System.out.println(messageSource.getMessage("processbefore", new Object[]{this.getClass().getName()}, new Locale("is")));
+
         ReaderFactory readerFactory = new ReaderFactory();
-        Reader reader = readerFactory.getReader("userReader");
-
+        reader = readerFactory.getReader("userReader");
         reader.setReadHandler(new ReadHandler() {
             @Override
             public void read(int count, Object object) {
 
             }
         });
+
+        userService = (UserService)applicationContext.getBean("userService");
+    }
+
+    @Override
+    public void startProcess() {
+        System.out.println(messageSource.getMessage("processstart", new Object[]{this.getClass().getName()}, new Locale("en")));
+        System.out.println(messageSource.getMessage("processstart", new Object[]{this.getClass().getName()}, new Locale("is")));
 
         try {
             reader.read();
@@ -45,6 +56,7 @@ public class UserImportProcess  extends RuAbstractProcess{
 
     @Override
     public void afterProcess() {
-        super.afterProcess();
+        System.out.println(messageSource.getMessage("processstartdone", new Object[]{this.getClass().getName()}, new Locale("en")));
+        System.out.println(messageSource.getMessage("processstartdone", new Object[]{this.getClass().getName()}, new Locale("is")));
     }
 }

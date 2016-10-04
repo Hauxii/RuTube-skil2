@@ -6,7 +6,7 @@
     <bean id ="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename">
-            <value>jdk.internal.dynalink.beans.messages</value>
+            <value>messages</value>
         </property>
     </bean>
 
