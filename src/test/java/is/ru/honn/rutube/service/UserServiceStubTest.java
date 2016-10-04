@@ -50,4 +50,18 @@ public class UserServiceStubTest {
         assertEquals(null, stub.getUser(99));
     }
 
+    @org.junit.Test
+    public void testObserver(){
+
+        try{
+            stub.addObserver(stub);
+            User user = new User(2, "Someone", "Someonesdottir", "someone@ru.is", "SM", "1993-12-12");
+            stub.addUser(user);
+        }
+        catch(ServiceException ex){
+            System.out.println("Service Exception caught");
+        }
+
+    }
+
 }

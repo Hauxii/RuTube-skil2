@@ -36,4 +36,12 @@ public class User {
   public List<Video> getVideos() {
     return videos;
   }
+
+  public String getUserName(){
+    return firstName + " " + lastName;
+  }
+
+  public String getDisplayName(){
+    return displayName;
+  }
 }

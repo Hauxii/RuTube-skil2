@@ -1,9 +1,11 @@
 package is.ru.honn.rutube.process;
 
+import is.ru.honn.rutube.domain.User;
 import is.ru.honn.rutube.reader.ReadHandler;
 import is.ru.honn.rutube.reader.Reader;
 import is.ru.honn.rutube.reader.ReaderException;
 import is.ru.honn.rutube.reader.ReaderFactory;
+import is.ru.honn.rutube.service.Observer;
 import is.ru.honn.rutube.service.UserService;
 import is.ruframework.process.RuAbstractProcess;
 import org.springframework.context.ApplicationContext;
@@ -37,7 +39,6 @@ public class UserImportProcess  extends RuAbstractProcess{
 
             }
         });
-
         userService = (UserService)applicationContext.getBean("userService");
     }
 
@@ -48,8 +49,7 @@ public class UserImportProcess  extends RuAbstractProcess{
 
         try {
             reader.read();
-        }
-        catch (ReaderException e){
+        } catch (ReaderException e) {
             System.out.println("ReaderException caught");
         }
     }

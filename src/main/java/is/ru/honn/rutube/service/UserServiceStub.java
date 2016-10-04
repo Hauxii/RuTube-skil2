@@ -11,9 +11,11 @@ import java.util.List;
 public class UserServiceStub implements UserService{
 
     private List<User> _users;
+    private List<Observer> observers;
 
     UserServiceStub(){
         this._users = new ArrayList<>();
+        this.observers = new ArrayList<>();
     }
 
     public boolean addUser(User user) throws ServiceException {
@@ -22,6 +24,7 @@ public class UserServiceStub implements UserService{
                 throw new ServiceException();
             }
         }
+        notifyObservers(user);
         return _users.add(user);
     }
 
@@ -37,4 +40,14 @@ public class UserServiceStub implements UserService{
     public List<User> getUsers(){
         return _users;
     }
+
+    public void addObserver(Observer observer){observers.add(observer);}
+
+    public void notifyObservers(User user){
+        for(Observer observer : observers){
+            System.out.println("User ID: " + user.getUserId()+ " " + "Full name of user: " + " " + user.getUserName() + " " + "Display Name: " + user.getDisplayName());
+        }
+    }
+
 }
+
