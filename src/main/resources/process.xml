@@ -5,7 +5,10 @@
 
     <bean id="processContext" class="is.ruframework.process.RuProcessContext">
         <property name="processName">
-            <value></value>
+            <value>UserImportProcess</value>
+        </property>
+        <property name="processClass">
+            <value>is.ru.honn.rutube.process.UserImportProcess</value>
         </property>
     </bean>
 </beans>
