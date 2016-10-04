@@ -18,7 +18,7 @@ public class UserReader extends AbstractReader{
     this.videoReader.setReadHandler(new ReadHandler() {
       @Override
       public void read(int count, Object object) {
-        
+
       }
     });
     if(videoReader == null){

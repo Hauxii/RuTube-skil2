@@ -1,5 +1,7 @@
 package is.ru.honn.rutube.reader;
 
+import org.jboss.resteasy.core.ExceptionAdapter;
+
 import static org.junit.Assert.*;
 
 /**
@@ -38,7 +40,7 @@ public class AbstractReaderTest {
     }
 
     @org.junit.Test
-    public void factoryRead(){
+    public void factoryRead() throws Exception{
         ReaderFactory factory = new ReaderFactory();
         Reader reader = factory.getReader("userReader");
 
@@ -55,6 +57,11 @@ public class AbstractReaderTest {
         }catch (ReaderException e){
             System.out.println("WTF is borked!");
         }
+
+    }
+
+    @org.junit.Test
+    public void linesReadMatchFile() throws Exception {
 
     }
 
