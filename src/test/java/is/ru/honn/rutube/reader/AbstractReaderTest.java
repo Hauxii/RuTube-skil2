@@ -40,22 +40,23 @@ public class AbstractReaderTest {
     @org.junit.Test
     public void factoryRead(){
         ReaderFactory factory = new ReaderFactory();
-        Reader reader = factory.getReader("videoReader");
+        Reader reader = factory.getReader("userReader");
 
+        reader.setURI("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650");
+        reader.setReadHandler(new ReadHandler() {
+            @Override
+            public void read(int count, Object object) {
+
+            }
+        });
 
         try {
-            reader.setURI("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650");
-            reader.setReadHandler(new ReadHandler() {
-                @Override
-                public void read(int count, Object object) {
-
-                }
-            });
             reader.read();
         }catch (ReaderException e){
             System.out.println("WTF is borked!");
         }
 
     }
+
 
 }

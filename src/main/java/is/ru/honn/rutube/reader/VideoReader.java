@@ -40,8 +40,7 @@ public class VideoReader extends AbstractReader{
       );
       videos.add(video);
     });
-
-    readHandler.read(videos.size(),videos);
+    this.readHandler.read(videos.size(),videos);
     return videos;
   }
 

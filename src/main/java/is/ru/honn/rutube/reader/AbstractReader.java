@@ -23,7 +23,6 @@ public abstract class AbstractReader implements Reader{
         if(readHandler == null){
             throw new ReaderException("ReadHandler has not been set");
         }
-
         return parse(cr.getRequest(uri));
     }
 

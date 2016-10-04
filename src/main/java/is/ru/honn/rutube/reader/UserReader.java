@@ -15,6 +15,15 @@ public class UserReader extends AbstractReader{
 
   public UserReader(VideoReader videoReader){
     this.videoReader = videoReader;
+    this.videoReader.setReadHandler(new ReadHandler() {
+      @Override
+      public void read(int count, Object object) {
+        
+      }
+    });
+    if(videoReader == null){
+      System.out.println("VIDEOREADER IS NULL");
+    }
   }
 
 
