@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Skilav2" />
+        <module name="RuTube" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Skilav2" target="1.8" />
+      <module name="RuTube" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
