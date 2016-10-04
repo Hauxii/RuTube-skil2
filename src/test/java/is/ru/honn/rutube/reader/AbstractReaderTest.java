@@ -9,34 +9,29 @@ import static org.junit.Assert.*;
  */
 public class AbstractReaderTest {
 
-    AbstractReader abstractReader;
+    UserReader userReader;
 
     @org.junit.Before
     public void setUp(){
-        abstractReader = new AbstractReader() {
-            @Override
-            public Object parse(String content) {
-                return null;
-            }
-        };
+        userReader = new UserReader(new VideoReader());
     }
 
     @org.junit.Test (expected = ReaderException.class)
     public void readWithoutReadHandler() throws Exception {
-        abstractReader.setURI("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650");
-        abstractReader.read();
+        userReader.setURI("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650");
+        userReader.read();
     }
 
     @org.junit.Test (expected = ReaderException.class)
     public void readWithoutCorrectURI() throws Exception {
-        abstractReader.setURI("NOT MOCKAROO LINK");
-        abstractReader.setReadHandler(new ReadHandler() {
+        userReader.setURI("NOT MOCKAROO LINK");
+        userReader.setReadHandler(new ReadHandler() {
             @Override
             public void read(int count, Object object) {
 
             }
         });
-        abstractReader.read();
+        userReader.read();
     }
 
     @org.junit.Test
@@ -44,7 +39,7 @@ public class AbstractReaderTest {
         ReaderFactory factory = new ReaderFactory();
         Reader reader = factory.getReader("userReader");
 
-        reader.setURI("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650");
+        //reader.setURI("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650");
         reader.setReadHandler(new ReadHandler() {
             @Override
             public void read(int count, Object object) {

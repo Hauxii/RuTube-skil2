@@ -9,6 +9,7 @@
 
         <bean id="userReader" class="is.ru.honn.rutube.reader.UserReader">
             <constructor-arg ref="videoReader" />
+            <property name="URI" value="http://mockaroo.com/f13b8200/download?count=1&amp;key=e79a3650"/>
         </bean>
 
 </beans>

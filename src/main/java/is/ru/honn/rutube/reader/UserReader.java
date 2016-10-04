@@ -21,9 +21,6 @@ public class UserReader extends AbstractReader{
 
       }
     });
-    if(videoReader == null){
-      System.out.println("VIDEOREADER IS NULL");
-    }
   }
 
 

@@ -8,7 +8,7 @@ import java.util.List;
  */
 public abstract class AbstractReader implements Reader{
     private ClientRequest cr;
-    private String uri;
+    protected String URI;
     protected ReadHandler readHandler;
 
     public AbstractReader(){
@@ -16,20 +16,20 @@ public abstract class AbstractReader implements Reader{
     }
 
     public Object read() throws ReaderException {
-        if(uri != "http://mockaroo.com/f13b8200/download?count=1&key=e79a3650"){
+        if(!URI.equals("http://mockaroo.com/f13b8200/download?count=1&key=e79a3650") || URI == null){
             throw new ReaderException("URI is wrong");
         }
 
         if(readHandler == null){
             throw new ReaderException("ReadHandler has not been set");
         }
-        return parse(cr.getRequest(uri));
+        return parse(cr.getRequest(URI));
     }
 
     public abstract Object parse(String content);
 
     public void setURI(String URI){
-        this.uri = URI;
+        this.URI = URI;
     }
 
     public void setReadHandler(ReadHandler readHandler){
