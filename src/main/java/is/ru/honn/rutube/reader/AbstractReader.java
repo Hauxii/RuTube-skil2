@@ -40,13 +40,17 @@ public abstract class AbstractReader implements Reader{
     }
 
     /**
-     * 
+     * Sets the URI to read from
      * @param URI
      */
     public void setURI(String URI){
         this.URI = URI;
     }
 
+    /**
+     * Sets the readhandler to be used
+     * @param readHandler
+     */
     public void setReadHandler(ReadHandler readHandler){
         this.readHandler = readHandler;
     }

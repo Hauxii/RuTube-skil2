@@ -8,6 +8,9 @@ import org.json.simple.JSONValue;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Reads content and parses it to video objects
+ */
 public class VideoReader extends AbstractReader{
 
   public VideoReader(){
