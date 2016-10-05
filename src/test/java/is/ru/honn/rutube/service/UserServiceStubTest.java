@@ -5,10 +5,17 @@ import is.ru.honn.rutube.domain.User;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Lenny on 1.10.2016.
+ * Created by Lenny on 4.10.2016.
+ * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
+ * @date 29.09.16
+ */
+
+/**
+ * Junit tests for User service
  */
 public class UserServiceStubTest {
     UserServiceStub stub;
+
 
     @org.junit.Before
     public void setUp(){
@@ -22,6 +29,10 @@ public class UserServiceStubTest {
         }
     }
 
+    /**
+     * This test adds a user that is made sure is valid. addUser returns true if the user was successfully added.
+     * @throws ServiceException if the user was not successfully added.
+     */
     @org.junit.Test
     public void addValidUser() throws Exception {
         try{
@@ -33,25 +44,40 @@ public class UserServiceStubTest {
         }
     }
 
+    /**
+     * This test adds an invalid user and expects addUser to throw a service exception.
+     * @throws ServiceException if addUser was unsuccessful
+     */
     @org.junit.Test(expected = ServiceException.class)
     public void addUserShouldFail() throws Exception {
 
         User user = new User(0, "Berglind", "Omars", "berglindoma13@ru.is", "Beggz", "1992-09-17");
-        assertEquals(false, stub.addUser(user));
+        stub.addUser(user);
     }
 
+    /**
+     * This test checks if the user set up in the before function returns the correct UserID.
+     * @throws Exception if UserID is not correct
+     */
     @org.junit.Test
     public void getValidUser() throws Exception {
         assertEquals(0, stub.getUser(0).getUserId());
     }
 
+    /**
+     * This test checks if getting a non existing user will return null as it should.
+     * @throws Exception if it does not return null
+     */
     @org.junit.Test
     public void getNonExistingUser() throws Exception {
         assertEquals(null, stub.getUser(99));
     }
 
+    /**
+     * This test adds a observer and then adds a user. When the new user is added, the observer should be notified and the user info printed out.
+     */
     @org.junit.Test
-    public void testObserver(){
+    public void testObserver()throws Exception{
 
         try{
             stub.addObserver(stub);
