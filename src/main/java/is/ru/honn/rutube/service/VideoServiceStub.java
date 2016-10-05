@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Lenny on 29.9.2016.
+ * Created by Lenny on 4.10.2016.
+ * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
+ * @date 29.09.16
  */
 public class VideoServiceStub implements VideoService {
 

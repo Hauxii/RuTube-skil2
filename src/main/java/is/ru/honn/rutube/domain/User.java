@@ -1,9 +1,16 @@
 package is.ru.honn.rutube.domain;
-
+/**
+ * Created by Lenny on 4.10.2016.
+ * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
+ * @date 29.09.16
+ */
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * POJO for user information, getters and setters for attributes
+ */
 public class User {
 
 
