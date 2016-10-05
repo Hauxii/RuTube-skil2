@@ -8,6 +8,7 @@ package is.ru.honn.rutube.reader;
 
 /**
  * The interface for Reader implementation
+ *
  */
 public interface Reader {
     Object read() throws ReaderException;
