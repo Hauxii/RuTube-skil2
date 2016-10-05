@@ -4,6 +4,10 @@ package is.ru.honn.rutube.reader;
  * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
  * @date 29.09.16
  */
+
+/**
+ * Is thrown if error occurs while reading content and parsing
+ */
 public class ReaderException extends Exception
 {
   public ReaderException()

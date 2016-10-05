@@ -21,7 +21,7 @@ import java.util.Locale;
  */
 
 /**
- *
+ * Extends RuAbstractProcess from the RuFramework which has the main function
  */
 public class UserImportProcess  extends RuAbstractProcess{
 
@@ -29,6 +29,9 @@ public class UserImportProcess  extends RuAbstractProcess{
     MessageSource messageSource;
     Reader reader;
 
+    /**
+     * Method which runs before a process and sets up needed data
+     */
     @Override
     public void beforeProcess() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("app.xml");
@@ -48,6 +51,9 @@ public class UserImportProcess  extends RuAbstractProcess{
         userService = (UserService)applicationContext.getBean("userService");
     }
 
+    /**
+     * Method which starts the process
+     */
     @Override
     public void startProcess() {
         System.out.println(messageSource.getMessage("processstart", new Object[]{this.getClass().getName()}, new Locale("en")));
@@ -60,6 +66,9 @@ public class UserImportProcess  extends RuAbstractProcess{
         }
     }
 
+    /**
+     * Method which runs after a process
+     */
     @Override
     public void afterProcess() {
         System.out.println(messageSource.getMessage("processstartdone", new Object[]{this.getClass().getName()}, new Locale("en")));

@@ -8,12 +8,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * A class that handles a request from a client
+ */
 public class ClientRequest
 {
   public ClientRequest()
   {
   }
 
+  /**
+   * Gets request from user
+   * @param url The url to request from
+   * @return The content requested
+   */
   public String getRequest(String url)
   {
     Client client = ClientBuilder.newClient();
@@ -25,6 +33,12 @@ public class ClientRequest
     return result;
   }
 
+  /**
+   * Gets content from a file
+   * @param fileName
+   * @return The content of the file
+   * @throws is.ru.honn.rutube.reader.ReaderException
+   */
   public String getFileContent(String fileName) throws is.ru.honn.rutube.reader.ReaderException
   {
     StringBuilder content = new StringBuilder();

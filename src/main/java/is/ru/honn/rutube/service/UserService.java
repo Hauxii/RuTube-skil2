@@ -8,6 +8,10 @@ import is.ru.honn.rutube.domain.User;
  * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
  * @date 29.09.16
  */
+
+/**
+ * The interface for user service implementation
+ */
 public interface UserService extends Observer
 {
     boolean addUser(User user) throws ServiceException;

@@ -5,5 +5,9 @@ package is.ru.honn.rutube.service;
  * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
  * @date 29.09.16
  */
+
+/**
+ * Is thrown when error occurs in a service
+ */
 public class ServiceException extends Exception {
 }
