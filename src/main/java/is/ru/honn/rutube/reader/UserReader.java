@@ -66,22 +66,6 @@ public class UserReader extends AbstractReader{
     return users;
   }
 
-  /**
-   *
-   * @param jParent Json parent containing an integer field.
-   * @param name name of the integer field
-   * @return int value of the json int in the jParent object.
-   */
-  protected int getInt(JSONObject jParent, String name)
-  {
-    if(jParent == null)
-      return 0;
-    Long value = (Long)jParent.get(name);
-    if(value == null)
-      return 0;
-    return value.intValue();
-  }
-
   public static void main(String args[]){
 
     VideoReader videoReader = new VideoReader();
