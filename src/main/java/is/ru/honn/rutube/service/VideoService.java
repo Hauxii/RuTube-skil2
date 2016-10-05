@@ -8,6 +8,10 @@ import is.ru.honn.rutube.domain.Video;
  * @author Haukur Ingi Ágústsson and Berglind Ómarsdóttir
  * @date 29.09.16
  */
+
+/**
+ * The interface for video service implementation
+ */
 public interface VideoService
 {
     Video getVideo(int videoId);
